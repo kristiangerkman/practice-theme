@@ -17,6 +17,10 @@
   src: url(fonts/Vinkel-Regular.otf) format("truetype");
 }
 
+html {
+  margin-top: 0px !important;
+}
+
 p {
   font-family: Vinkel-Regular;
 }
