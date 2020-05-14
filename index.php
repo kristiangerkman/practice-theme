@@ -8,7 +8,9 @@
 </head>
 
 <header>
-    <p>PALVELUN TARJOAA</p> <span>KANSALLISTEATTERI</span>
+    <span>
+        <p>PALVELUN TARJOAA</p> <span>KANSALLISTEATTERI</span>
+    </span>
 </header>
 
 <body>

@@ -1,3 +1,87 @@
 /*
  Theme Name: practice theme
 */
+
+@import url("https://materiaalit.g.works/rekry/harkkatehtava/assets/fonts/Vinkel-Bold.otf");
+@import url("./Vinkel-Light.otf");
+@import url("./Vinkel-Regular.otf.otf");
+
+@font-face {
+  font-family: Vinkel-bold;
+  src: url("./fonts/Vinkel-bold.otf") format("truetype");
+}
+
+body {
+  margin: 0;
+  background-color: #e5007c;
+
+  background-position: top center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.backround-image {
+  background-image: url("https://materiaalit.g.works/rekry/harkkatehtava/assets/images/49241990101_94df6453ab_o.jpg "),
+    linear-gradient(0deg, #e5007c 1%, rgba(229, 0, 124, 0) 100%);
+}
+
+.hero-container {
+  background-color: #fff;
+}
+
+.content {
+  width: 80%;
+}
+
+.hero-container h1 {
+  font-family: Vinkel-Bold;
+  font-size: 72px;
+  color: #e5007c;
+  letter-spacing: 0;
+  line-height: 86.4px;
+}
+
+.hero-container p {
+  font-family: Vinkel-Light;
+  font-size: 24px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 40.08px;
+}
+
+.hero-container a {
+  font-family: Vinkel-Bold;
+  font-size: 16px;
+  color: #e5007c;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.hero-container .hero-cta {
+  border: 3px solid #e5007c;
+  border-radius: 24px;
+  border-radius: 24px;
+}
+
+.images h2 {
+  font-family: Vinkel-Bold;
+  font-size: 72px;
+  color: #e5007c;
+  letter-spacing: 0;
+  line-height: 86.4px;
+}
+.images p {
+  font-family: Vinkel-Regular;
+  font-size: 18px;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 50.4px;
+}
+
+.paricipate input {
+  border: 3px solid #d0d0d0;
+  border-radius: 24px;
+  border-radius: 24px;
+}
