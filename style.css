@@ -2,74 +2,147 @@
  Theme Name: practice theme
 */
 
-@import url("https://materiaalit.g.works/rekry/harkkatehtava/assets/fonts/Vinkel-Bold.otf");
-@import url("./Vinkel-Light.otf");
-@import url("./Vinkel-Regular.otf.otf");
+@font-face {
+  font-family: Vinkel-Bold;
+  src: url(fonts/Vinkel-Bold.otf) format("truetype");
+}
 
 @font-face {
-  font-family: Vinkel-bold;
-  src: url("./fonts/Vinkel-bold.otf") format("truetype");
+  font-family: Vinkel-Light;
+  src: url(fonts/Vinkel-Light.otf) format("truetype");
+}
+
+@font-face {
+  font-family: Vinkel-Regular;
+  src: url(fonts/Vinkel-Regular.otf) format("truetype");
+}
+
+p {
+  font-family: Vinkel-Regular;
 }
 
 body {
+  overflow-x: hidden;
+  list-style-type: none;
+  padding: 0;
   margin: 0;
   background-color: #e5007c;
-
-  background-position: top center;
-  background-attachment: fixed;
-  background-size: cover;
+  background-image: url("https://materiaalit.g.works/rekry/harkkatehtava/assets/images/49241990101_94df6453ab_o.jpg");
+  backdrop-filter: blur(10px);
   background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: -300px;
+  background-position-x: center;
+}
+.background-image-fade {
+  z-index: -1;
+  min-height: 305px;
+  min-width: 1920px;
+  background-image: linear-gradient(
+    0deg,
+    #e5007c 1%,
+    rgba(229, 0, 124, 0) 100%
+  );
+  position: absolute;
+  margin-left: -153px;
+  margin-top: -140px;
 }
 
-.backround-image {
-  background-image: url("https://materiaalit.g.works/rekry/harkkatehtava/assets/images/49241990101_94df6453ab_o.jpg "),
-    linear-gradient(0deg, #e5007c 1%, rgba(229, 0, 124, 0) 100%);
+header p {
+  font-family: Vinkel-Regular;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.main-container {
+  height: 100%;
+  width: 1600px;
+  padding-top: 153px;
+  margin-left: 7.8%;
+  margin-right: 8.9%;
 }
 
 .hero-container {
-  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.content {
-  width: 80%;
+.hero-content {
+  width: 550px;
+  height: 800px;
+  text-align: left;
+  padding-left: 139px;
 }
 
-.hero-container h1 {
+.hero-container .hero-heading {
   font-family: Vinkel-Bold;
   font-size: 72px;
   color: #e5007c;
   letter-spacing: 0;
   line-height: 86.4px;
+  margin-top: 170px;
 }
 
-.hero-container p {
+.hero-image-container {
+  width: 800px;
+  height: 800px;
+  margin-top: -100px;
+  margin-right: -60px;
+  overflow: hidden;
+}
+
+.hero-container img {
+  width: auto;
+  height: 800px;
+  float: right;
+}
+
+.hero-container,
+.images,
+.participate,
+.tas {
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.content {
+  width: 100%;
+}
+
+.hero-container .hero-text {
   font-family: Vinkel-Light;
   font-size: 24px;
   color: #000000;
   letter-spacing: 0;
   line-height: 40.08px;
-}
-
-.hero-container a {
-  font-family: Vinkel-Bold;
-  font-size: 16px;
-  color: #e5007c;
-  letter-spacing: 2px;
-  text-decoration: none;
+  margin-bottom: 50px;
 }
 
 .hero-container .hero-cta {
   border: 3px solid #e5007c;
   border-radius: 24px;
   border-radius: 24px;
+  width: 190px;
+  height: 48px;
+  font-family: Vinkel-Bold;
+  font-size: 16px;
+  color: #e5007c;
+  letter-spacing: 2px;
+  padding: 10px 13px;
+
+  text-decoration: none;
 }
 
 .images h2 {
   font-family: Vinkel-Bold;
-  font-size: 72px;
+  font-size: 42px;
   color: #e5007c;
   letter-spacing: 0;
-  line-height: 86.4px;
+  text-align: center;
+  line-height: 50.4px;
+  margin: 0px;
 }
 .images p {
   font-family: Vinkel-Regular;
@@ -78,10 +151,171 @@ body {
   letter-spacing: 0;
   text-align: center;
   line-height: 50.4px;
+  margin: 0px;
 }
 
-.paricipate input {
+.images .item-list {
+  margin-left: 220px;
+}
+
+.images .images-heading {
+  padding-top: 88px;
+  padding-bottom: 56px;
+}
+
+.participate {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: start;
+  padding-top: 103px;
+  padding-bottom: 103px;
+  margin-top: 0px;
+}
+.participate .left-side {
+  width: 550px;
+  margin-left: 222px;
+}
+
+.participate .left-side p {
+  font-family: Vinkel-Regular;
+  font-size: 18px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 30.06px;
+}
+
+.participate .left-side h2 {
+  font-family: Vinkel-Bold;
+  font-size: 42px;
+  color: #e5007c;
+  letter-spacing: 0;
+  line-height: 50.4px;
+  margin-top: 0px;
+}
+
+.participate .right-side {
+  width: 480px;
+  margin-left: 148px;
+}
+
+.participate .right-side p {
+  font-family: Vinkel-Regular;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.participate input {
   border: 3px solid #d0d0d0;
   border-radius: 24px;
   border-radius: 24px;
+  width: 464px;
+  height: 40px;
+  padding-left: 10px;
+  font-family: Vinkel-Regular;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+}
+
+.participate input:focus {
+  border: 3px solid #e5007c;
+  outline: none;
+}
+
+.participate .tas-link {
+  font-family: Vinkel-Regular;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  margin-top: 0px;
+}
+
+.participate .input-file {
+  background: #d8d8d8;
+  border-radius: 24px;
+  border-radius: 24px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  width: 480px;
+  height: 48px;
+  border-style: solid;
+}
+
+.participate .input-file-hidden {
+  display: none;
+}
+
+.participate .tas-check {
+  height: 16px;
+  width: 16px;
+}
+
+.participate .submit-btn {
+  background: #e5007c;
+  border-radius: 24px;
+  border-radius: 24px;
+  height: 48px;
+  width: 155px;
+  font-family: Vinkel-Bold;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: 2px;
+  box-shadow: none;
+  border-style: solid;
+  margin-top: 26px;
+}
+
+.tas {
+  display: flex;
+  justify-content: start;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.tas .main-tas p {
+  font-family: Vinkel-Regular;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 23.38px;
+}
+
+.tas .main-tas {
+  width: 481px;
+  height: 712px;
+  overflow: scroll;
+}
+.tas .right-side p {
+  font-family: Vinkel-Regular;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 26.72px;
+}
+
+.tas .right-side h2 {
+  font-family: Vinkel-Bold;
+  font-size: 32px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 50.4px;
+}
+
+.tas .right-side {
+  padding-left: 222px;
+  padding-right: 91px;
+  width: 300px;
+}
+
+footer {
+  font-family: Vinkel-Bold;
+  font-size: 21px;
+  color: #fff;
+  letter-spacing: 0;
+  line-height: 50.4px;
+  text-align: center;
+  padding-bottom: 30px;
 }
