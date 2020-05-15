@@ -12,3 +12,14 @@
                 ?>
 
                 http://localhost/wordpress/wp-content/uploads/images/5ebe924d601618.47803355.png
+
+
+                <li class="list-item">
+                        <div class="small-img">
+                            <img src="http://localhost/wordpress/wp-content/uploads/images/5ebe924d601618.47803355.png" alt="" />
+                        </div>
+                        <button type="button" class="vote-btn">ÄÄNESTÄ</button>
+                        <button type="button" class="share-btn">JAA</button>
+                        <p class="item-heading">gin and tonic picture</p>
+                        <p class="item-creator">Kristian gerkman</p>
+                    </li>
