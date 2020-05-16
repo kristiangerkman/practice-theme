@@ -1,13 +1,5 @@
 <?php get_header(); ?>
-
-<?php
-
-/* echo "<pre>";
-print_r(get_field("hero_image")["sizes"]["1536x1536"]);
-echo "</pre>";
-die(); */
-?>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <div class="main-container">
     <header>
         <p>PALVELUN TARJOAA <b>KANSALLISTEATTERI</b></p>
@@ -56,18 +48,13 @@ die(); */
                         $pageNumber = 1;
                         $result = array_reverse($result, FALSE);
 
-                        if (isset($_POST["page"])) {
-                            $pageNumber = $_POST["page"];
-                            $_POST = array();
+                        if (isset($_GET["kuva"])) {
+                            $pageNumber = $_GET["kuva"];
                         }
+                        $nextPageNumber = $pageNumber + 1;
+                        $prevPageNumber = $pageNumber - 1;
 
-                        if (isset($_POST["next"])) {
-                            $pageNumber = $pageNumber + 1;
-                            /*if ($pageNumber >= $numberOfPages) {
-                                $pageNumber = $numberOfPages;
-                            } */
-                            $_POST = array();
-                        }
+
 
                         $lastIndex = ($pageNumber * 8) - 1; //2*8 -1 = 15 
                         if ($lastIndex < 8) {
@@ -92,23 +79,61 @@ die(); */
 
                         $tmp = 0;
 
+
+
                         foreach ($postsToShow as $row) {
+                            $likes = (int) $row["likes"];
+                            $likes = $likes + 1;
                             echo "<li class=\"list-item\">
                 <div class=\"small-img\">
                 <img src=" . content_url() . "/uploads/images/" . $row["img"] . " alt=\"404\"/>
                 </div>
-                <button type=\"button\" class=\"vote-btn\">ÄÄNESTÄ</button>
+                <button type=\"button\" onClick=\"likePost(" . $row["id"] . "," . (int) $row["likes"] . ")\" id=\"btn-" . $row["id"] . "\" class=\"vote-btn\">ÄÄNESTÄ</button>
+                <button type=\"button\" class=\"likes hidden\" id=\"likes-" . $row["id"] . "\"disabled> " . $likes . " </a>
+                <script type=\"text/javascript\">
+                        const voteButton_" . $row["id"] . " = document.getElementById(\"btn-" . $row["id"] . "\");
+                        const likes_" . $row["id"] . " = document.getElementById(\"likes-" . $row["id"] . "\");
+                        voteButton_" . $row["id"] . ".addEventListener(\"click\", function() {
+                            voteButton_" . $row["id"] . ".classList.add(\"hidden\");
+                            likes_" . $row["id"] . ".classList.remove(\"hidden\");
+/*                             $.ajax({
+                                url: \"" . site_url() . "\",
+                                data: {likes:" .
+                                $row["likes"] . ", id:" .
+                                $row["id"] .
+                                "},
+                                type: \"post\",
+                                success: function() {
+                                    console.log(\"asd\");
+                                    <?php echo \"asd\" ?>;
+                                }
+                            }); */
+                            console.log(\"liked\");
+                        });
+                        
+                </script>
                 <button type=\"button\" class=\"share-btn\">JAA</button>
                 <p class=\"item-heading\">" . $row["title"] . "</p>
                 <p class=\"item-creator\">" . $row["person_name"] . "</p>
                 </li>";
                         } ?>
                     </ul>
+
+                    <!--                     <script type="text/javascript">
+                        const likePost = function(id, likes) {
+
+                        }
+                    </script> -->
                     <div class="numbers">
+                        <?php if ($prevPageNumber > 0) { ?>
+
+                            <a href="<?php echo site_url("?kuva=" . $prevPageNumber) . "#kuvat" ?>" class="prev number"> <b>Edellinen</b> </a>
+
+                        <?php } ?>
 
                         <?php for ($i = 1; $i <= $numberOfPages; $i++) {
-                            echo "<form action=\"" . site_url("#kuvat") . "\" method=\"post\">";
-                            echo "<input type=\"hidden\" name=\"page\" value=" . $i . "\">";
+                            echo "<form action=\"" . site_url("#kuvat") . "\" method=\"get\">";
+                            echo "<input type=\"hidden\" name=\"kuva\" value=\"" . $i . "\">";
                             if ($i == $pageNumber) {
                                 echo "<span class=\"number current\"> <b>" . $i . "</b> </span>";
                             } else {
@@ -116,10 +141,11 @@ die(); */
                             }
                             echo "</form>";
                         } ?>
-                        <form action=<?php echo "\"" . site_url("#kuvat") . "\""; ?> method="post">
-                            <input type="hidden" name="next" />
-                            <button class="next number"> <b>Seuraava</b> </button>
-                        </form>
+                        <?php if ($nextPageNumber <= $numberOfPages) { ?>
+
+                            <a href="<?php echo site_url("?kuva=" . $nextPageNumber) . "#kuvat" ?>" class="next number"> <b>Seuraava</b> </a>
+
+                        <?php } ?>
                     </div>
                 </div>
             </div>

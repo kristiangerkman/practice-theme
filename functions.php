@@ -90,3 +90,21 @@ if (isset($_POST["submit-btn"])) {
         $bool = true;
     }
 }
+/* function likePic($id, $likes)
+{
+
+    $likes = $likes + 1;
+    //echo "<script type=\"text/javascript\">console.log(\"" . $id . $likes . "\"); </script>";
+
+    $db = mysqli_connect("localhost", get_field("db_user"), get_field("db_password"), get_field("db_name"));
+    $query = "UPDATE `images` SET `likes` = '" . $likes . "' WHERE `images`.`id` =" . $id . ";";
+
+    mysqli_query($db, $query);
+
+}
+
+if (isset($_POST["likes"]) && isset($_POST["likes"])) {
+    die();
+    echo "aasddddddddddddddddddddddddddddddddd";
+    likePic($_POST["id"], $_POST["likes"]);
+} */
