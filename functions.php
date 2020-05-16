@@ -26,6 +26,14 @@ add_action('get_header', 'remove_admin_login_header');
 
 
 
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 
 
 
@@ -53,9 +61,7 @@ if (isset($_POST["submit-btn"])) {
                     $img_new_name = uniqid("", true) . "." . $file_ext;
                     $img_url = "/var/www/html/wordpress/wp-content/uploads/images/" . $img_new_name;
 
-                    if (move_uploaded_file($img_tmp, $img_url)) {
-                        echo "success";
-                    }
+                    move_uploaded_file($img_tmp, $img_url);
                 }
             }
         } else {
@@ -65,9 +71,9 @@ if (isset($_POST["submit-btn"])) {
         global $wpdb;
 
         $data_array = array(
-            "title" => $_POST["title"],
-            "person_name" => $_POST["name"],
-            "email" => $_POST["email"],
+            "title" => test_input($_POST["title"]),
+            "person_name" => test_input($_POST["name"]),
+            "email" => test_input($_POST["email"]),
             "img" => $img_new_name,
             "likes" => 0
         );
@@ -76,9 +82,11 @@ if (isset($_POST["submit-btn"])) {
         $row_result = $wpdb->insert($table_name, $data_array, $format = NULL);
 
         if ($row_result == 1) {
-            echo "<p> success </p>";
+            header("location:" . get_home_url() . "#kuvat");
+            die();
         }
     } else {
-        echo "fail";
+        //header("location:" . get_home_url() . "#osallistu");
+        $bool = true;
     }
 }
