@@ -44,6 +44,9 @@
                         );
                         $numberOfPosts = sizeof($result, $mode = COUNT_NORMAL);
                         $numberOfPages = floor($numberOfPosts / 8) + 1;
+                        if ($numberOfPosts == 8) {
+                            $numberOfPages = 1;
+                        }
 
                         $pageNumber = 1;
                         $result = array_reverse($result, FALSE);
